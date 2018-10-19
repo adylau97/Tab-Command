@@ -1,0 +1,27 @@
+{
+  "applications": {
+    "gecko": {
+      "strict_min_version": "58.0a1"
+    }
+  },
+  "background": {
+      "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "browser_style": true,
+    "default_icon":"icons/icon.png",
+    "default_title": "Tabs commander",
+    "default_popup": "tabscommand.html"
+  },
+  "icons": {
+    "48": "icons/icon.png",
+    "96": "icons/icon@2x.png"
+  },
+  "description": "A list of methods you can perform on a tab.",
+  "manifest_version": 2,
+  "name": "Tabs commander",
+  "permissions": [
+    "tabs"
+  ],
+  "version": "1.0"
+}

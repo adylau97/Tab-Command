@@ -1,0 +1,45 @@
+html, body {
+  width: 350px;
+}
+
+a {
+  margin: 10px;
+  display: inline-block;
+}
+
+p{
+  font-size: 16px;
+}
+
+.switch-tabs {
+  padding-left: 10px;
+}
+
+.switch-tabs a {
+  font-size: 16px;
+  display: block;
+}
+
+.switch-tabs a:hover {
+  color: Red;
+}
+
+.panel {
+  margin: 5px;
+}
+
+.btn{
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  border-radius: 12px;
+  display: inline-block;
+  margin-left: 45px;
+ 
+}
+
+.btn:hover {
+  background-color: RoyalBlue;
+}

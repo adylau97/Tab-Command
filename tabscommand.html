@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="tabscommand.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+<body>
+  <div class="panel">
+    <div class="panel-section panel-section-header">
+      <div class="text-section-header">Tabs commander</div>
+    </div>
+
+    <br>
+    <button class="btn" id="tabs-move-beginning" title="Move Tab to the Front"><i class="fa fa-arrow-left"></i></button>
+    <button class="btn" id="tabs-move-end" title="Move Tab to the End"><i class="fa fa-arrow-right"></i></button>
+    <button class="btn" id="tabs-duplicate" title="Duplicate Tab"><i class="fa fa-clone"></i></button>
+    <br><br>
+    <button class="btn" id="tabs-reload" title="Reload Tab"><i class="fa fa-refresh"></i></button>
+    <button class="btn" id="tabs-create" title="Create Tab"><i class="fa fa-plus-square"></i></button>
+    <button class="btn" id="tabs-remove" title="Delete Tab"><i class="fa fa-minus-square"></i></button>
+    <br><br>
+    <button class="btn" id="tabs-add-zoom" title="Zoom In"><i class="fa fa-search-plus"></i></button>
+    <button class="btn" id="tabs-decrease-zoom" title="Zoom Out"><i class="fa fa-search-minus"></i></button>
+    <button class="btn" id="tabs-default-zoom" title="Reset Zoom"><i class="fa fa-search"></i></button>
+    <br><br>
+    <button class="btn" id="tabs-alertinfo" title="Alert Info"><i class="fa fa-exclamation-circle"></i></button>
+    <button class="btn" id="tabs-convert-reader" title="Reader Mode"><i class="fa fa-book"></i></button>
+    <br><br>
+    <br>
+    
+
+    <div class="panel-section-separator"></div>
+
+    <div class="switch-tabs">
+      <p>Switch to tab</p>
+      <div id="tabs-list"></div>
+    </div>
+  </div>
+
+  <script src="tabscommand.js"></script>
+</body>
+
+</html>
