@@ -12,9 +12,7 @@ function firstUnpinnedTab(tabs) {
   }
 }
 
-/**
- * listTabs to switch to
- */
+//List all the tabs to switch to
 function listTabs() {
   getCurrentWindowTabs().then((tabs) => {
     let tabsList = document.getElementById('tabs-list');
@@ -31,8 +29,6 @@ function listTabs() {
         tabLink.classList.add('switch-tabs');
         currentTabs.appendChild(tabLink);
       }
-
-     
     }
 
     tabsList.appendChild(currentTabs);
@@ -41,10 +37,12 @@ function listTabs() {
 
 document.addEventListener("DOMContentLoaded", listTabs);
 
+//Gey currect active tab that is being opened
 function getCurrentWindowTabs() {
   return browser.tabs.query({currentWindow: true});
 }
 
+//Add listener of which operation is being clicked
 document.addEventListener("click", (e) => {
   function callOnActiveTab(callback) {
     getCurrentWindowTabs().then((tabs) => {
@@ -55,7 +53,7 @@ document.addEventListener("click", (e) => {
       }
     });
 }
-
+  //If operation is move tab to the front
   if (e.target.id === "tabs-move-beginning") {
     callOnActiveTab((tab, tabs) => {
       var index = 0;
@@ -66,7 +64,7 @@ document.addEventListener("click", (e) => {
       browser.tabs.move([tab.id], {index});
     });
   }
-
+ //If operation is move tab to the end
   else if (e.target.id === "tabs-move-end") {
     callOnActiveTab((tab, tabs) => {
       var index = -1;
@@ -77,42 +75,47 @@ document.addEventListener("click", (e) => {
       browser.tabs.move([tab.id], {index});
     });
   }
-
+ //If operation is duplicate tab
   else if (e.target.id === "tabs-duplicate") {
     callOnActiveTab((tab) => {
       browser.tabs.duplicate(tab.id);
       listTabs();
     });
   }
-
+ //If operation is refresh tab
   else if (e.target.id === "tabs-reload") {
     callOnActiveTab((tab) => {
       browser.tabs.reload(tab.id);
     });
   }
-
+  //If operation is remove tab
   else if (e.target.id === "tabs-remove") {
     callOnActiveTab((tab) => {
       browser.tabs.remove(tab.id);
     });
   }
-
+  //If operation is create tab 
   else if (e.target.id === "tabs-create") {
     browser.tabs.create({url:"https://google.com"});
   }
-
+//If operation is convert tab to reader mode
   else if (e.target.id === "tabs-convert-reader") {
     callOnActiveTab((tab)=>{
       if(tab.isArticle){
         browser.tabs.toggleReaderMode();
+
+        //If the tab is reader mode
       }else if(tab.isInReaderMode){
         alert("This tab is in reader mode!");
+
+        //If the tab is not an article
       }else{
         alert("This tab is not an article!");
       }
     });
   }
 
+  //If operation is show tab info
   else if (e.target.id === "tabs-alertinfo") {
     callOnActiveTab((tab) => {
       let props = "";
@@ -123,6 +126,7 @@ document.addEventListener("click", (e) => {
     });
   }
 
+  //If operation is zoom in tab
   else if (e.target.id === "tabs-add-zoom") {
     callOnActiveTab((tab) => {
       var gettingZoom = browser.tabs.getZoom(tab.id);
@@ -140,7 +144,7 @@ document.addEventListener("click", (e) => {
       });
     });
   }
-
+//If operation is zoom out tab
   else if (e.target.id === "tabs-decrease-zoom") {
     callOnActiveTab((tab) => {
       var gettingZoom = browser.tabs.getZoom(tab.id);
@@ -158,7 +162,7 @@ document.addEventListener("click", (e) => {
       });
     });
   }
-
+//If operation is reset zoom of the tab
   else if (e.target.id === "tabs-default-zoom") {
     callOnActiveTab((tab) => {
       var gettingZoom = browser.tabs.getZoom(tab.id);
@@ -172,6 +176,7 @@ document.addEventListener("click", (e) => {
     });
   }
 
+  //Show list of the tab being opened and ability to switch between tabs
   else if (e.target.classList.contains('switch-tabs')) {
     var tabId = +e.target.getAttribute('href');
     browser.tabs.query({
