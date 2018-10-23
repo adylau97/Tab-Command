@@ -9,13 +9,13 @@
   },
   "browser_action": {
     "browser_style": true,
-    "default_icon":"icons/icon.png",
+    "default_icon":"icons/icon_custom.png",
     "default_title": "Tabs commander",
     "default_popup": "tabscommand.html"
   },
   "icons": {
-    "48": "icons/icon.png",
-    "96": "icons/icon@2x.png"
+    "48": "icons/icon_custom.png",
+    "96": "icons/icon_custom.png"
   },
   "description": "A list of methods you can perform on a tab.",
   "manifest_version": 2,
